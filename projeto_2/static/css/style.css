@@ -1000,78 +1000,368 @@ body {
 }
 
 /* ==============================================================
-   FOOTER
+   RODAPÉ COMERCIAL DE ALTO IMPACTO (COMMERCIAL FOOTER)
    ============================================================== */
-.footer {
-  border-top: 1px solid var(--border-glass);
-  background: rgba(5, 9, 16, 0.9);
-  padding: 60px 0 30px;
-  margin-top: 80px;
+.footer-commercial {
+  background: linear-gradient(180deg, #060c16 0%, #03060b 100%);
+  border-top: 1px solid rgba(0, 242, 254, 0.2);
+  margin-top: 100px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.4);
 }
 
-.footer-top {
+/* Faixa de Confiança / Selos Comerciais (Pré-Footer) */
+.footer-trust-banner {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 18, 30, 0.7);
+  padding: 32px 0;
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 24px;
+}
+
+.trust-item {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 36px;
-  margin-bottom: 40px;
-}
-
-.footer-brand {
-  max-width: 360px;
-}
-
-.footer-brand p {
-  color: var(--color-text-muted);
-  font-size: 0.9rem;
-  margin-top: 12px;
-}
-
-.footer-links {
-  display: flex;
-  gap: 48px;
-  list-style: none;
-}
-
-.footer-links a {
-  color: var(--color-text-muted);
-  text-decoration: none;
-  font-size: 0.9rem;
+  align-items: center;
+  gap: 16px;
+  padding: 10px;
+  border-radius: var(--radius-sm);
   transition: var(--transition-fast);
 }
 
-.footer-links a:hover {
-  color: var(--accent-cyan);
+.trust-item:hover {
+  background: rgba(255, 255, 255, 0.02);
 }
 
-.footer-bottom {
+.trust-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(0, 242, 254, 0.1);
+  border: 1px solid rgba(0, 242, 254, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-cyan);
+  flex-shrink: 0;
+  transition: var(--transition-fast);
+}
+
+.trust-item:hover .trust-icon {
+  background: var(--grad-primary);
+  color: #05101f;
+  transform: scale(1.05);
+}
+
+.trust-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.trust-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-text-main);
+  margin-bottom: 2px;
+}
+
+.trust-desc {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  line-height: 1.35;
+}
+
+/* Conteúdo Principal do Rodapé (5 Colunas) */
+.footer-main-content {
+  padding: 64px 24px 50px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr 1.35fr;
+  gap: 40px;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-logo {
+  margin-bottom: 16px;
+}
+
+.footer-tagline {
+  color: var(--color-text-muted);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.footer-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.84rem;
+  color: var(--color-text-muted);
+}
+
+.contact-item svg {
+  width: 16px;
+  height: 16px;
+  color: var(--accent-cyan);
+  flex-shrink: 0;
+}
+
+.footer-social-links {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-glass);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.social-icon-btn:hover {
+  background: rgba(0, 242, 254, 0.15);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 242, 254, 0.25);
+}
+
+.social-icon-btn svg {
+  width: 17px;
+  height: 17px;
+}
+
+.footer-col-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: 20px;
+  position: relative;
+  letter-spacing: 0.02em;
+}
+
+.footer-col-title::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background: var(--accent-cyan);
+  border-radius: 2px;
+}
+
+.footer-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-nav-list a {
+  text-decoration: none;
+  color: var(--color-text-muted);
+  font-size: 0.88rem;
+  transition: var(--transition-fast);
+  display: inline-block;
+}
+
+.footer-nav-list a:hover {
+  color: var(--accent-cyan);
+  transform: translateX(4px);
+}
+
+/* Newsletter Comercial */
+.footer-newsletter-text {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.footer-newsletter-form {
+  display: flex;
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.footer-input {
+  width: 100%;
+  padding: 12px 48px 12px 14px;
+  background: rgba(14, 25, 41, 0.85);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-sm);
+  color: #fff;
+  font-family: var(--font-primary);
+  font-size: 0.88rem;
+  outline: none;
+  transition: var(--transition-fast);
+}
+
+.footer-input:focus {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 0 2px rgba(0, 242, 254, 0.2);
+}
+
+.footer-btn-submit {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: var(--grad-primary);
+  border: none;
+  color: #05101f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.footer-btn-submit:hover {
+  transform: translateY(-50%) scale(1.08);
+}
+
+/* Formas de Pagamento */
+.footer-payments-box {
+  background: rgba(13, 23, 38, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+}
+
+.payments-title {
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-dim);
+  margin-bottom: 10px;
+}
+
+.payments-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.payment-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #cfd9df;
+  letter-spacing: 0.04em;
+}
+
+/* Barra Inferior Legal / Compliance */
+.footer-legal-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  background: #020509;
+  padding: 24px 0;
+  font-size: 0.82rem;
+  color: var(--color-text-dim);
+}
+
+.legal-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  padding-top: 24px;
-  font-size: 0.85rem;
-  color: var(--color-text-dim);
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 18px;
 }
 
-.footer-admin-link {
+.legal-corporate-info {
+  line-height: 1.6;
+}
+
+.legal-corporate-info strong {
+  color: var(--color-text-muted);
+}
+
+.legal-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.legal-links a {
   color: var(--color-text-dim);
   text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.legal-links a:hover {
+  color: var(--accent-cyan);
+}
+
+.admin-badge-link {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  padding: 4px 10px;
+  background: rgba(0, 242, 254, 0.08);
+  border: 1px solid rgba(0, 242, 254, 0.25);
+  border-radius: var(--radius-full);
+  color: var(--accent-cyan) !important;
+  font-weight: 600;
+  font-size: 0.78rem;
 }
 
-.footer-admin-link:hover {
-  color: var(--accent-cyan);
+.admin-badge-link:hover {
+  background: rgba(0, 242, 254, 0.2);
+  border-color: var(--accent-cyan);
 }
 
 /* ==============================================================
    RESPONSIVIDADE (MOBILE & TABLET)
    ============================================================== */
+@media (max-width: 1100px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 36px;
+  }
+  .col-brand {
+    grid-column: span 3;
+  }
+  .col-newsletter {
+    grid-column: span 3;
+  }
+}
+
 @media (max-width: 992px) {
   .hero-grid {
     grid-template-columns: 1fr;
@@ -1101,12 +1391,16 @@ body {
   .form-card {
     padding: 24px 18px;
   }
-  .footer-top {
-    flex-direction: column;
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
-  .footer-links {
+  .col-brand, .col-newsletter {
+    grid-column: span 1;
+  }
+  .legal-container {
     flex-direction: column;
-    gap: 16px;
+    align-items: flex-start;
   }
 }
 
