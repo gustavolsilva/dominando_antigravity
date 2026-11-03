@@ -1,0 +1,7 @@
+{
+  "terminal.integrated.fontFamily": "'MesloLGS NF', 'MesloLGS Nerd Font', 'MesloLGSDz Nerd Font', 'Meslo LG S', 'FiraCode Nerd Font', 'JetBrainsMono Nerd Font', monospace",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontWeight": "normal",
+  "terminal.integrated.lineHeight": 1.2
+}
+
