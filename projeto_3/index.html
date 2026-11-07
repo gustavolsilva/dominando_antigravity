@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LIVE: Cyber Security Masterclass | Sexta-Feira</title>
+  <meta name="description" content="Participe da Live exclusiva sobre Cyber Security nesta sexta-feira. Aprenda táticas de defesa, ameaças modernas e como blindar infraestruturas contra ataques reais.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="LIVE: Cyber Security Masterclass | Sexta-Feira às 20h">
+  <meta property="og:description" content="Aprenda técnicas de pentest, blindagem defensiva e resposta a incidentes nesta masterclass online e gratuita.">
+  <meta property="og:type" content="website">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Canvas de Fundo (Partículas de Rede Cibernética) -->
+  <canvas id="cyber-bg"></canvas>
+  <div class="grid-overlay"></div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-content">
+      <div class="logo">
+        <span class="terminal-prompt">$</span>
+        <span class="logo-text">CYBER<span class="highlight">DEFENSE</span>.LIVE</span>
+      </div>
+      <div class="nav-status">
+        <span class="live-dot"></span>
+        <span class="status-text">TRANSMISSÃO AO VIVO NESTA SEXTA</span>
+      </div>
+      <a href="#inscricao" class="btn btn-outline btn-sm nav-cta">Garantir Vaga</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero">
+      <div class="container hero-container">
+        
+        <!-- Tag / Badge -->
+        <div class="badge-wrapper">
+          <div class="cyber-badge">
+            <i data-lucide="shield-alert" class="badge-icon"></i>
+            <span>MASTERCLASS 100% ONLINE & GRATUITA</span>
+          </div>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="hero-title">
+          DOMINE O CAMPO DE BATALHA DO <br>
+          <span class="gradient-text glitch-text" data-text="CYBER SECURITY">CYBER SECURITY</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Descubra como hackers reais exploram brechas críticas, como defender infraestruturas modernas contra ameaças zero-day e ransomware, e os caminhos para uma carreira de alto valor na segurança da informação.
+        </p>
+
+        <!-- Detalhes do Evento -->
+        <div class="event-meta-card">
+          <div class="meta-item">
+            <i data-lucide="calendar" class="meta-icon"></i>
+            <div>
+              <span class="meta-label">DATA</span>
+              <span class="meta-value" id="event-date-display">Nesta Sexta-Feira</span>
+            </div>
+          </div>
+          <div class="meta-separator"></div>
+          <div class="meta-item">
+            <i data-lucide="clock" class="meta-icon"></i>
+            <div>
+              <span class="meta-label">HORÁRIO</span>
+              <span class="meta-value">20:00 (Horário de Brasília)</span>
+            </div>
+          </div>
+          <div class="meta-separator"></div>
+          <div class="meta-item">
+            <i data-lucide="tv" class="meta-icon"></i>
+            <div>
+              <span class="meta-label">TRANSMISSÃO</span>
+              <span class="meta-value">YouTube / Privado</span>
+            </div>
+          </div>
+          <div class="meta-separator"></div>
+          <div class="meta-item">
+            <i data-lucide="ticket" class="meta-icon"></i>
+            <div>
+              <span class="meta-label">INVESTIMENTO</span>
+              <span class="meta-value highlight-green">100% Gratuito</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Countdown Timer -->
+        <div class="countdown-section">
+          <span class="countdown-title">A TRANSMISSÃO COMEÇA EM:</span>
+          <div class="countdown-boxes">
+            <div class="count-box">
+              <span class="count-number" id="days">00</span>
+              <span class="count-unit">Dias</span>
+            </div>
+            <div class="count-divider">:</div>
+            <div class="count-box">
+              <span class="count-number" id="hours">00</span>
+              <span class="count-unit">Horas</span>
+            </div>
+            <div class="count-divider">:</div>
+            <div class="count-box">
+              <span class="count-number" id="minutes">00</span>
+              <span class="count-unit">Min</span>
+            </div>
+            <div class="count-divider">:</div>
+            <div class="count-box">
+              <span class="count-number" id="seconds">00</span>
+              <span class="count-unit">Seg</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulário de Inscrição Rápida -->
+        <div id="inscricao" class="hero-form-card">
+          <div class="form-header">
+            <div class="terminal-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <span class="form-header-title">terminal://register-live.sh</span>
+          </div>
+
+          <form id="leadForm" class="signup-form">
+            <h3 class="form-title">Garanta Seu Acesso Exclusivo à Live</h3>
+            <p class="form-desc">Vagas limitadas na sala virtual. Enviaremos o link direto e materiais bônus.</p>
+            
+            <div class="input-group">
+              <label for="name">
+                <i data-lucide="user"></i> Nome completo
+              </label>
+              <input type="text" id="name" name="name" placeholder="Ex: Lucas Ferreira" required autocomplete="name">
+            </div>
+
+            <div class="input-group">
+              <label for="email">
+                <i data-lucide="mail"></i> Seu melhor e-mail
+              </label>
+              <input type="email" id="email" name="email" placeholder="Ex: lucas@empresa.com" required autocomplete="email">
+            </div>
+
+            <div class="input-group">
+              <label for="whatsapp">
+                <i data-lucide="phone"></i> WhatsApp (para lembrete 15 min antes)
+              </label>
+              <input type="tel" id="whatsapp" name="whatsapp" placeholder="(11) 99999-9999" required autocomplete="tel">
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block pulse-btn">
+              <i data-lucide="zap"></i>
+              QUERO ASSISTIR À LIVE GRATUITAMENTE
+            </button>
+
+            <div class="form-trust">
+              <i data-lucide="lock" class="trust-icon"></i>
+              <span>Seus dados estão protegidos por criptografia de ponta a ponta. Zero spam.</span>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Simulação Interativa de Terminal -->
+    <section class="section terminal-sim-section">
+      <div class="container">
+        <div class="section-badge">PRÉVIA EXCLUSIVA</div>
+        <h2 class="section-title">O que você verá ao vivo: Do Ataque à Mitigação</h2>
+        <p class="section-subtitle">Experimente abaixo o simulador da console de operações que usaremos durante a transmissão.</p>
+
+        <div class="terminal-sim-window">
+          <div class="sim-header">
+            <div class="terminal-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <span class="sim-header-title">secops@threat-hunting-lab:~$ ./run_simulation.sh</span>
+            <div class="sim-actions">
+              <button id="simAttackBtn" class="sim-btn sim-btn-attack">
+                <i data-lucide="crosshair"></i> Simular Ataque
+              </button>
+              <button id="simDefendBtn" class="sim-btn sim-btn-defend">
+                <i data-lucide="shield-check"></i> Disparar Defesa
+              </button>
+              <button id="simClearBtn" class="sim-btn sim-btn-clear">
+                <i data-lucide="trash-2"></i> Limpar
+              </button>
+            </div>
+          </div>
+          <div class="sim-body" id="simConsoleBody">
+            <div class="sim-line system-line">[SYSTEM] Ambiente de laboratório isolado carregado com sucesso.</div>
+            <div class="sim-line system-line">[INFO] Clique em "Simular Ataque" para observar a cadeia de invasão ou em "Disparar Defesa" para mitigar.</div>
+            <div class="sim-line prompt-line"><span class="sim-prompt">secops@lab:~$</span> <span class="cursor">_</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- O Que Você Vai Aprender (Trilha de Conteúdo) -->
+    <section class="section topics-section">
+      <div class="container">
+        <div class="section-badge">CRONOGRAMA TÉCNICO</div>
+        <h2 class="section-title">O que será demonstrado na prática</h2>
+        <p class="section-subtitle">Sem enrolação teórica de slides: foco em cenários de combate real e técnicas atuais.</p>
+
+        <div class="topics-grid">
+          <div class="topic-card">
+            <div class="topic-number">01</div>
+            <div class="topic-icon-wrap">
+              <i data-lucide="bug" class="topic-icon"></i>
+            </div>
+            <h3 class="topic-title">Anatomia de um Ataque Real</h3>
+            <p class="topic-text">Como agentes maliciosos realizam reconhecimento, escaneamento de portas, exploração de vulnerabilidades e escalonamento de privilégios.</p>
+          </div>
+
+          <div class="topic-card">
+            <div class="topic-number">02</div>
+            <div class="topic-icon-wrap">
+              <i data-lucide="shield-check" class="topic-icon"></i>
+            </div>
+            <h3 class="topic-title">Blindagem & Hardening Defensivo</h3>
+            <p class="topic-text">Arquitetura Zero Trust, proteção de APIs, microsserviços, gestão de segredos e estratégias para mitigar ataques de Ransomware.</p>
+          </div>
+
+          <div class="topic-card">
+            <div class="topic-number">03</div>
+            <div class="topic-icon-wrap">
+              <i data-lucide="cpu" class="topic-icon"></i>
+            </div>
+            <h3 class="topic-title">Ameaças com Inteligência Artificial</h3>
+            <p class="topic-text">O novo cenário: ataques potencializados por IA (deepfake phishing, automated exploits) e como usar IA na detecção preventiva de anomalias.</p>
+          </div>
+
+          <div class="topic-card">
+            <div class="topic-number">04</div>
+            <div class="topic-icon-wrap">
+              <i data-lucide="award" class="topic-icon"></i>
+            </div>
+            <h3 class="topic-title">Carreira & Certificações Globais</h3>
+            <p class="topic-text">O mapa definitivo das carreiras em Cyber (Blue Team, Red Team, SOC, AppSec) e quais certificações (CEH, CompTIA, OSCP) mais abrem portas no mercado global.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bônus Exclusivos Para Quem Assistir Ao Vivo -->
+    <section class="section bonus-section">
+      <div class="container">
+        <div class="bonus-card-wrapper">
+          <div class="bonus-badge">
+            <i data-lucide="gift"></i> PRESENTES PARA OS PARTICIPANTES
+          </div>
+          <h2 class="bonus-title">Bônus Gratuitos Para Quem Estiver Ao Vivo</h2>
+          <p class="bonus-desc">Ao se inscrever e comparecer na sexta-feira, você desbloqueará acesso instantâneo a:</p>
+
+          <div class="bonus-list">
+            <div class="bonus-item">
+              <div class="bonus-check"><i data-lucide="check"></i></div>
+              <div>
+                <strong>Checklist Completo de Hardening (PDF):</strong> 50+ passos para proteger servidores Linux, containers Docker e redes corporativas.
+              </div>
+            </div>
+
+            <div class="bonus-item">
+              <div class="bonus-check"><i data-lucide="check"></i></div>
+              <div>
+                <strong>Guia de Laboratório Prático para Estudos:</strong> Roteiro para montar seu próprio laboratório de testes seguro com Kali Linux e Metasploitable.
+              </div>
+            </div>
+
+            <div class="bonus-item">
+              <div class="bonus-check"><i data-lucide="check"></i></div>
+              <div>
+                <strong>Sessão Aberta de Q&A (Tire Dúvidas):</strong> Pergunte diretamente sobre sua carreira, projetos e dúvidas de segurança.
+              </div>
+            </div>
+          </div>
+
+          <div class="bonus-cta">
+            <a href="#inscricao" class="btn btn-primary">Garantir Minha Vaga e Bônus</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Para Quem É -->
+    <section class="section audience-section">
+      <div class="container">
+        <div class="section-badge">PÚBLICO-ALVO</div>
+        <h2 class="section-title">Para quem esta live foi preparada?</h2>
+
+        <div class="audience-grid">
+          <div class="audience-card">
+            <i data-lucide="code-2" class="audience-icon"></i>
+            <h4>Desenvolvedores & Engenheiros de Software</h4>
+            <p>Que desejam aplicar DevSecOps, escrever código sem brechas OWASP e blindar suas aplicações desde o primeiro commit.</p>
+          </div>
+
+          <div class="audience-card">
+            <i data-lucide="server" class="audience-icon"></i>
+            <h4>Profissionais de Infra, Redes & DevOps</h4>
+            <p>Responsáveis por manter a infraestrutura de pé, configurar firewalls, VPNs e prevenir incidentes em produção.</p>
+          </div>
+
+          <div class="audience-card">
+            <i data-lucide="compass" class="audience-icon"></i>
+            <h4>Iniciantes e Em Transição de Carreira</h4>
+            <p>Pessoas que querem ingressar em uma das áreas com maior escassez de profissionais e salários mais valorizados da tecnologia.</p>
+          </div>
+
+          <div class="audience-card">
+            <i data-lucide="briefcase" class="audience-icon"></i>
+            <h4>Líderes Técnicos & CTOs</h4>
+            <p>Que precisam entender a maturidade de cibersegurança da sua empresa para conformidade (LGPD) e proteção patrimonial.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quem Ministra a Live -->
+    <section class="section speaker-section">
+      <div class="container speaker-container">
+        <div class="section-badge">SEU INSTRUTOR</div>
+        <h2 class="section-title">Quem vai conduzir a transmissão</h2>
+        <p class="section-subtitle">Mais de 10 anos combatendo incidentes reais em empresas globais e construindo defesas resilientes.</p>
+
+        <div class="speaker-card">
+          <div class="speaker-avatar-wrap">
+            <div class="speaker-avatar">
+              <i data-lucide="shield" class="speaker-placeholder-icon"></i>
+            </div>
+            <div class="speaker-status-badge">
+              <span class="live-dot"></span> INSTRUTOR CONFIRMADO
+            </div>
+          </div>
+
+          <div class="speaker-info">
+            <h3 class="speaker-name">Especialista Sênior em Segurança Ofensiva & Defensiva</h3>
+            <span class="speaker-role">Especialista em Threat Hunting & Cloud Security</span>
+            <p class="speaker-bio">
+              Com passagens por times de Red Team e resposta a incidentes críticos, atuou na proteção de infraestruturas que processam milhões de transações diárias. Mentor de dezenas de profissionais que migraram para a área de Cyber Security.
+            </p>
+
+            <div class="certifications-list">
+              <span class="cert-pill">CISSP</span>
+              <span class="cert-pill">OSCP</span>
+              <span class="cert-pill">CEH Master</span>
+              <span class="cert-pill">CompTIA Security+</span>
+              <span class="cert-pill">AWS Certified Security</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Perguntas Frequentes (FAQ) -->
+    <section class="section faq-section">
+      <div class="container faq-container">
+        <div class="section-badge">DÚVIDAS FREQUENTES</div>
+        <h2 class="section-title">Perguntas Frequentes</h2>
+        <p class="section-subtitle">Tudo o que você precisa saber sobre a live de sexta-feira.</p>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>A live é realmente 100% gratuita?</span>
+              <i data-lucide="chevron-down" class="faq-arrow"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>Sim! O evento é completamente gratuito. Não há nenhuma cobrança para participar da transmissão e receber os materiais complementares.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>A transmissão vai ficar gravada?</span>
+              <i data-lucide="chevron-down" class="faq-arrow"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>Não garantimos gravação aberta! A dinâmica ao vivo contará com demonstrações práticas interativas e sessão de perguntas que só estarão disponíveis em tempo real.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Preciso ter conhecimento avançado para entender?</span>
+              <i data-lucide="chevron-down" class="faq-arrow"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>Não! A didática foi planejada para abranger desde conceitos fundamentais até cenários práticos mais aprofundados, explicando de forma clara e visual a lógica de cada ataque e defesa.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Onde recebo o link para assistir?</span>
+              <i data-lucide="chevron-down" class="faq-arrow"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>O link exclusivo da transmissão será enviado para o seu e-mail cadastrado e também no WhatsApp poucas horas antes de iniciarmos nesta sexta-feira.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="final-cta-section">
+      <div class="container final-cta-container">
+        <h2>Não fique vulnerável. Fortaleça suas defesas nesta sexta-feira.</h2>
+        <p>Junte-se a centenas de profissionais e entusiastas de segurança cibernética em uma noite de imersão técnica.</p>
+        <a href="#inscricao" class="btn btn-primary btn-lg pulse-btn">
+          <i data-lucide="shield"></i> GARANTIR MINHA PARTICIPAÇÃO GRATUITA
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal de Confirmação de Sucesso -->
+  <div id="successModal" class="modal-overlay hidden">
+    <div class="modal-box">
+      <div class="modal-icon-success">
+        <i data-lucide="check-circle-2"></i>
+      </div>
+      <h3 class="modal-title">INSCRIÇÃO CONFIRMADA COM SUCESSO!</h3>
+      <p class="modal-text">Parabéns! Sua vaga para a Masterclass de Cyber Security nesta sexta-feira está garantida.</p>
+
+      <div class="modal-actions">
+        <a id="addToCalendarBtn" href="#" target="_blank" class="btn btn-outline btn-block">
+          <i data-lucide="calendar-plus"></i> Adicionar ao Google Agenda
+        </a>
+        <a id="whatsappGroupBtn" href="https://chat.whatsapp.com" target="_blank" class="btn btn-whatsapp btn-block">
+          <i data-lucide="message-circle"></i> Entrar no Grupo VIP do WhatsApp
+        </a>
+      </div>
+
+      <button id="closeModalBtn" class="modal-close-btn" aria-label="Fechar modal">
+        <i data-lucide="x"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <div class="logo">
+          <span class="terminal-prompt">$</span>
+          <span class="logo-text">CYBER<span class="highlight">DEFENSE</span>.LIVE</span>
+        </div>
+        <p class="footer-desc">Masterclass especializada em segurança ofensiva e defensiva para a era moderna.</p>
+      </div>
+      <div class="footer-right">
+        <p>&copy; <span id="currentYear"></span> Todos os direitos reservados. Promovido com foco em segurança e privacidade.</p>
+        <div class="cyber-signature">SYSTEM SECURITY LEVEL: [ MAXIMUM ]</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Social Proof Live Toast -->
+  <div id="liveToast" class="live-toast hidden">
+    <div class="toast-avatar">
+      <i data-lucide="user-check"></i>
+    </div>
+    <div class="toast-content">
+      <strong id="toastName">Matheus R. de Campinas</strong>
+      <span>acabou de garantir sua vaga gratuita!</span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
