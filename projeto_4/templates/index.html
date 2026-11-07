@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LIVE: Cyber Security na Prática | Defesa & Ataque Cibernético</title>
+  
+  <meta name="description" content="Participe da live exclusiva de Cyber Security nesta sexta-feira às 20h no YouTube. Aprenda técnicas de invasão ética, defesa cibernética e blindagem digital.">
+  <meta property="og:title" content="LIVE: Cyber Security na Prática">
+  <meta property="og:description" content="Participe da live exclusiva de Cyber Security nesta sexta-feira às 20h no YouTube. Garanta sua vaga!">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body data-event-date="{{ event_date_iso }}" data-youtube-url="{{ youtube_live_url }}">
+
+  <!-- Canvas interativo Matrix de fundo -->
+  <canvas id="matrixCanvas"></canvas>
+  <div class="glow-backdrop"></div>
+
+  <!-- Barra de Navegação -->
+  <header class="navbar">
+    <div class="container nav-content">
+      <a href="/" class="brand">
+        <div class="brand-icon">🛡️</div>
+        <span>CYBER<span style="color: var(--cyan-neon);">DEF</span> LIVE</span>
+      </a>
+      <a href="{{ youtube_live_url }}" target="_blank" rel="noopener noreferrer" class="live-badge" style="text-decoration: none;">
+        <span class="pulse-dot"></span>
+        <span>Ao Vivo no YouTube</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="container">
+    <section class="hero">
+      <div class="hero-meta">
+        <div class="tag-terminal">
+          <span>&gt; root@sec-lab:~$ ./start_live_broadcast.sh --platform youtube</span>
+        </div>
+      </div>
+
+      <h1 class="hero-title">
+        A Anatomia de um Ataque Cibernético: <br>
+        <span class="gradient-text">Do Reconhecimento à Resposta a Incidentes</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Uma imersão prática e 100% gratuita sobre as principais técnicas ofensivas e estratégias de defesa utilizadas pelas maiores equipes de segurança do mundo.
+      </p>
+
+      <div class="event-info-bar">
+        <div class="info-item">
+          <span class="icon">📅</span>
+          <span>Data: <strong>Nesta Sexta-feira ({{ event_date_display }})</strong></span>
+        </div>
+        <div class="info-item">
+          <span class="icon">⏰</span>
+          <span>Horário: <strong>{{ event_time_display }}</strong></span>
+        </div>
+        <div class="info-item">
+          <span class="icon">🔴</span>
+          <span>Transmissão: <strong>YouTube Live (Gratuito)</strong></span>
+        </div>
+      </div>
+
+      <!-- Contagem Regressiva -->
+      <div class="countdown-wrapper">
+        <p class="countdown-label">A transmissão ao vivo começa em:</p>
+        <div class="countdown-grid">
+          <div class="time-box">
+            <span class="time-value" id="days">00</span>
+            <span class="time-unit">Dias</span>
+          </div>
+          <div class="time-box">
+            <span class="time-value" id="hours">00</span>
+            <span class="time-unit">Horas</span>
+          </div>
+          <div class="time-box">
+            <span class="time-value" id="minutes">00</span>
+            <span class="time-unit">Minutos</span>
+          </div>
+          <div class="time-box">
+            <span class="time-value" id="seconds">00</span>
+            <span class="time-unit">Segundos</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulário de Inscrição Simplificado (Nome e Email) -->
+      <div class="cta-card" id="inscricao">
+        <div class="cta-header">
+          <h3>Cadastre-se para receber o material e o aviso</h3>
+          <p>Informe seu nome e e-mail para receber os slides, cheatsheets e acesso prioritário.</p>
+        </div>
+
+        <form id="subscribeForm">
+          <div class="form-group">
+            <label for="name">Seu Nome Completo</label>
+            <input type="text" id="name" class="form-input" placeholder="Ex: Gustavo Silva" required autocomplete="name">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Seu E-mail</label>
+            <input type="email" id="email" class="form-input" placeholder="seu-email@dominio.com" required autocomplete="email">
+          </div>
+
+          <button type="submit" class="btn-primary" id="submitBtn">
+            <span>Garantir Minha Vaga & Acessar Live</span> →
+          </button>
+
+          <div class="form-feedback" id="formFeedback"></div>
+        </form>
+
+        <!-- Ação pós-inscrição -->
+        <div id="calendarSection" style="display: none; margin-top: 24px; padding-top: 20px; border-top: 1px dashed var(--border-neon);">
+          <div style="background: rgba(0, 245, 212, 0.08); border: 1px solid var(--border-neon); border-radius: 10px; padding: 18px; margin-bottom: 20px;">
+            <p style="color: #fff; font-size: 1.05rem; font-weight: 700; margin-bottom: 8px;">
+              🎉 Inscrição Realizada com Sucesso!
+            </p>
+            <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 16px;">
+              Clique no botão abaixo para já abrir a sala da live no YouTube e definir o lembrete (ativar o sininho):
+            </p>
+            <a href="{{ youtube_live_url }}" target="_blank" rel="noopener noreferrer" class="btn-youtube-primary">
+              <span style="font-size: 1.3rem;">▶️</span> Abrir Live no YouTube &amp; Ativar Lembrete
+            </a>
+          </div>
+
+          <p style="color: var(--cyan-neon); font-size: 0.9rem; margin-bottom: 10px; font-weight: 600;">
+            📅 Adicionar à sua agenda pessoal:
+          </p>
+          <div class="form-footer-actions">
+            <a href="/live.ics" class="btn-secondary" download>
+              📥 Baixar Evento (.ICS / Outlook / Apple)
+            </a>
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=LIVE:+Cyber+Security+na+Pr%C3%A1tica&details=Live+exclusiva+de+Cyber+Security.+Acesse:+https://www.youtube.com/watch?v=JjiVchY-I_k%26t=3s&location=https://www.youtube.com/watch?v=JjiVchY-I_k%26t=3s" target="_blank" class="btn-secondary">
+              📆 Adicionar ao Google Agenda
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Player / Preview do Vídeo do YouTube -->
+      <div class="video-preview-card">
+        <div class="video-preview-header">
+          <div class="video-dot red"></div>
+          <div class="video-dot yellow"></div>
+          <div class="video-dot green"></div>
+          <span class="video-title-bar">🔴 Transmissão Oficial: YouTube Live</span>
+        </div>
+        <div class="video-responsive-wrapper">
+          <iframe 
+            src="{{ youtube_embed_url }}" 
+            title="Live Cyber Security" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="video-preview-footer">
+          <span>Link direto: <a href="{{ youtube_live_url }}" target="_blank" rel="noopener noreferrer" style="color: var(--cyan-neon); word-break: break-all;">{{ youtube_live_url }}</a></span>
+          <a href="{{ youtube_live_url }}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="margin-top: 10px; display: inline-flex;">
+            Abrir diretamente no app do YouTube ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- O que você vai aprender -->
+    <section class="section-topics">
+      <div class="section-header">
+        <span class="section-badge">Conteúdo Programático</span>
+        <h2 class="section-title">O que será desvendado ao vivo na prática</h2>
+      </div>
+
+      <div class="topics-grid">
+        <div class="topic-card">
+          <div class="topic-icon">🎯</div>
+          <h4>Engenharia Social Moderna</h4>
+          <p>Como invasores utilizam OSINT (Open Source Intelligence), spear-phishing e técnicas cognitivas para burlar as defesas humanas.</p>
+          <div class="topic-tags">
+            <span class="pill-mini">OSINT</span>
+            <span class="pill-mini">Phishing 2.0</span>
+            <span class="pill-mini">MFA Bypass</span>
+          </div>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-icon">💻</div>
+          <h4>Exploração de Falhas Web &amp; Cloud</h4>
+          <p>Demonstração ao vivo de vulnerabilidades críticas como SQLi, SSRF e permissões incorretas em ambientes AWS/GCP.</p>
+          <div class="topic-tags">
+            <span class="pill-mini">OWASP Top 10</span>
+            <span class="pill-mini">Cloud Security</span>
+            <span class="pill-mini">API Hacking</span>
+          </div>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-icon">🛡️</div>
+          <h4>Blue Team &amp; Detecção de Ameaças</h4>
+          <p>Como montar um SIEM open-source, analisar logs de invasão e identificar movimentos laterais de invasores na rede em tempo real.</p>
+          <div class="topic-tags">
+            <span class="pill-mini">Threat Hunting</span>
+            <span class="pill-mini">SIEM / SOC</span>
+            <span class="pill-mini">Incident Response</span>
+          </div>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-icon">⚡</div>
+          <h4>Hardening &amp; Arquitetura Zero Trust</h4>
+          <p>Passo a passo para blindar servidores Linux/Windows, isolar ambientes críticos e implementar o conceito de "nunca confiar, sempre verificar".</p>
+          <div class="topic-tags">
+            <span class="pill-mini">Hardening</span>
+            <span class="pill-mini">Zero Trust</span>
+            <span class="pill-mini">DevSecOps</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Destaques da Experiência -->
+    <section class="experience-section">
+      <div class="features-banner">
+        <div class="feature-box">
+          <div class="feat-emoji">🧪</div>
+          <h5>Laboratório Ao Vivo</h5>
+          <p>Sem slides maçantes. Demonstrações em máquinas virtuais e ambientes reais de teste.</p>
+        </div>
+        <div class="feature-box">
+          <div class="feat-emoji">💬</div>
+          <h5>Q&amp;A em Tempo Real</h5>
+          <p>Tire dúvidas diretamente pelo chat do YouTube com análise dos seus cenários.</p>
+        </div>
+        <div class="feature-box">
+          <div class="feat-emoji">🎁</div>
+          <h5>Kit de Ferramentas &amp; Cheatsheets</h5>
+          <p>Todos os inscritos receberão scripts de automação e guias de segurança comentados por e-mail.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="section-header">
+        <span class="section-badge">Dúvidas Frequentes</span>
+        <h2 class="section-title">Perguntas &amp; Respostas</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>A live é realmente 100% gratuita?</span>
+            <span class="arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Sim! O acesso à transmissão no YouTube e ao material de apoio é totalmente gratuito para todos os inscritos cadastrados.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Onde será transmitida a live?</span>
+            <span class="arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>A transmissão será ao vivo no YouTube pelo link: <a href="{{ youtube_live_url }}" target="_blank" style="color: var(--cyan-neon);">{{ youtube_live_url }}</a>. Inscreva-se pelo formulário para não perder os materiais exclusivos!</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Preciso ter conhecimento prévio em programação ou redes?</span>
+            <span class="arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Não é obrigatório. As demonstrações serão explicadas de forma didática e progressiva, atendendo desde curiosos e iniciantes até profissionais que já atuam na área técnica.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>A live vai ficar gravada?</span>
+            <span class="arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>A reprise ficará disponível por tempo limitado prioritariamente para quem se cadastrar nesta lista.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé com Compartilhamento -->
+  <footer class="footer">
+    <div class="container">
+      <p style="margin-bottom: 12px; font-weight: 600; color: #fff;">Compartilhe o link da live com sua rede:</p>
+      <div class="share-strip">
+        <a id="shareWhatsapp" href="#" target="_blank" class="share-btn share-whatsapp">
+          <span>📲 WhatsApp</span>
+        </a>
+        <a id="shareTwitter" href="#" target="_blank" class="share-btn share-twitter">
+          <span>🐦 Twitter / X</span>
+        </a>
+        <a id="shareLinkedin" href="#" target="_blank" class="share-btn share-linkedin">
+          <span>💼 LinkedIn</span>
+        </a>
+      </div>
+      <p style="margin-top: 24px; color: var(--text-muted);">
+        &copy; 2026 CyberDef Live • Desenvolvido com Python &amp; Flask. 
+        • <a href="/dashboard">Painel de Inscritos</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
