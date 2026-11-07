@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina Prime Imóveis | Curadoria de Alto Padrão em São Paulo</title>
+    <meta name="description" content="Imóveis reais e exclusivos nos endereços mais nobres de São Paulo: Itaim Bibi, Jardins, Vila Nova Conceição e Alphaville. Fale com corretores especialistas pelo WhatsApp.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </span>
+                <div class="logo-text">
+                    <span class="logo-brand">LUMINA</span>
+                    <span class="logo-sub">PRIME IMÓVEIS</span>
+                </div>
+            </a>
+
+            <nav class="nav-links">
+                <a href="#inicio">Início</a>
+                <a href="#imoveis">Catálogo Exclusivo</a>
+                <a href="#diferenciais">Diferenciais</a>
+                <a href="#depoimentos">Depoimentos</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="btn-favorites" id="btnToggleFavorites" title="Ver Meus Favoritos">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                    <span class="fav-count" id="favCountBadge">0</span>
+                </button>
+                <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Gostaria%20de%20atendimento%20exclusivo%20para%20encontrar%20um%20im%C3%B3vel." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp-nav">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.625.846 5.059 2.284 7.033l-1.496 5.467 5.601-1.469c1.908 1.213 4.168 1.969 6.611 1.969 6.627 0 12-5.373 12-12s-5.373-12-12-12z"/>
+                    </svg>
+                    <span>Falar no WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <span class="hero-badge">CURADORIA IMOBILIÁRIA DE ALTO PADRÃO • SÃO PAULO</span>
+            <h1 class="hero-title">Imóveis reais com arquitetura assinada e <span class="text-highlight">localizações nobres</span></h1>
+            <p class="hero-subtitle">Casas em condomínio fechado, coberturas exclusivas e apartamentos de luxo em bairros selecionados. Atendimento direto e seguro com corretores especialistas.</p>
+
+            <!-- Search & Filter Box -->
+            <div class="search-card">
+                <div class="search-tabs">
+                    <button class="search-tab active" data-purpose="todos">Todos os Imóveis</button>
+                    <button class="search-tab" data-purpose="Venda">Comprar</button>
+                    <button class="search-tab" data-purpose="Aluguel">Alugar</button>
+                </div>
+                <div class="search-grid search-grid-expanded">
+                    <div class="search-field">
+                        <label for="searchQuery">Busca Rápida</label>
+                        <div class="input-with-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                            <input type="text" id="searchQuery" placeholder="Ex: Itaim Bibi, Pininfarina, Piscina, REF...">
+                        </div>
+                    </div>
+
+                    <div class="search-field">
+                        <label for="filterNeighborhood">Bairro / Região</label>
+                        <select id="filterNeighborhood">
+                            <option value="todos">Todos os bairros</option>
+                            <!-- Populated dynamically -->
+                        </select>
+                    </div>
+
+                    <div class="search-field">
+                        <label for="filterType">Tipo de Imóvel</label>
+                        <select id="filterType">
+                            <option value="todos">Todos os tipos</option>
+                            <option value="Apartamento">Apartamento</option>
+                            <option value="Casa">Casa em Condomínio</option>
+                            <option value="Cobertura">Cobertura</option>
+                            <option value="Studio">Studio / Loft</option>
+                        </select>
+                    </div>
+
+                    <div class="search-field">
+                        <label for="filterBedrooms">Dormitórios</label>
+                        <select id="filterBedrooms">
+                            <option value="0">Qualquer quantidade</option>
+                            <option value="1">1+ Quarto</option>
+                            <option value="2">2+ Quartos</option>
+                            <option value="3">3+ Quartos</option>
+                            <option value="4">4+ Quartos</option>
+                        </select>
+                    </div>
+
+                    <div class="search-field">
+                        <label for="filterSort">Ordenar por</label>
+                        <select id="filterSort">
+                            <option value="destaque">Destaques</option>
+                            <option value="menor-preco">Menor Preço</option>
+                            <option value="maior-preco">Maior Preço</option>
+                            <option value="maior-area">Maior Área (m²)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <strong>R$ +850M</strong>
+                    <span>Em VGV Comercializado</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <strong>100%</strong>
+                    <span>Imóveis Verificados e Reais</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <strong>CRECI 45.892-J</strong>
+                    <span>Assessoria Jurídica Própria</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Section -->
+    <section class="properties-section" id="imoveis">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <span class="section-tag">CATÁLOGO EXCLUSIVO</span>
+                    <h2 class="section-title">Oportunidades em Evidência</h2>
+                    <p class="section-desc">Clique no imóvel para conferir a galeria em alta resolução, especificação completa da planta e chamar o corretor responsável diretamente no WhatsApp.</p>
+                </div>
+                <div class="results-counter">
+                    Exibindo <strong id="propertyCount">0</strong> anúncios
+                    <button class="btn-clear-filters hidden" id="btnClearFilters">Limpar filtros</button>
+                </div>
+            </div>
+
+            <!-- Grid of Properties -->
+            <div class="properties-grid" id="propertiesGrid">
+                <!-- Populated by JavaScript -->
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state hidden" id="emptyState">
+                <div class="empty-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </div>
+                <h3>Nenhum imóvel corresponde aos filtros selecionados</h3>
+                <p>Experimente pesquisar por outro bairro ou remover filtros para ver nosso catálogo completo.</p>
+                <button class="btn btn-primary" id="btnResetEmpty">Ver todos os imóveis</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features / Diferenciais Section -->
+    <section class="features-section" id="diferenciais">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-tag">SEGURANÇA E AGILIDADE</span>
+                <h2 class="section-title">Por Que Negociar Conosco</h2>
+                <p class="section-desc">Conectamos compradores e locatários às melhores propriedades com discrição e rigor técnico.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Imóveis e Proprietários Validados</h3>
+                    <p>Cada anúncio conta com documentação e certidões pré-analisadas por nosso departamento jurídico antes da publicação.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3>Atendimento Instantâneo via WhatsApp</h3>
+                    <p>Ao demonstrar interesse por um imóvel, sua mensagem já vai com o código de referência, agilizando o agendamento de visitas.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                    </div>
+                    <h3>Financiamento e Estruturação Financeira</h3>
+                    <p>Simulação multibanque com as melhores taxas do mercado Private Banking (Itaú Private, Bradesco Prime, Santander Select e Safra).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="depoimentos">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-tag">DEPOIMENTOS DE CLIENTES</span>
+                <h2 class="section-title">Confiança Construída com Resultados</h2>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Procurávamos uma casa ampla em Alphaville há meses. Clicamos no botão do WhatsApp e o corretor já nos enviou o vídeo completo da mansão e a minuta da escritura. Negócio fechado com total tranquilidade."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Dr. Marcelo Rezende">
+                        <div>
+                            <strong>Dr. Marcelo Rezende</strong>
+                            <span>Comprou no Tamboré 3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"A riqueza de detalhes dos anúncios no site foi o grande diferencial. Informações de orientação solar, tipo de piso e valor exato do condomínio pouparam muito do nosso tempo."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Beatriz Vasconcellos">
+                        <div>
+                            <strong>Beatriz Vasconcellos</strong>
+                            <span>Comprou na Vila Nova Conceição</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Precisava alugar um studio mobiliado na Vila Olímpia com contrato corporativo ágil. Toda a negociação foi conduzida de forma transparente pelo WhatsApp."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" alt="Sofia Montenegro">
+                        <div>
+                            <strong>Sofia Montenegro</strong>
+                            <span>Alugou na Faria Lima</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <div class="cta-content">
+                    <h2>Busca um imóvel com perfil sob medida ou Off-Market?</h2>
+                    <p>Mantemos um portfólio restrito de mansões e coberturas que não são divulgadas publicamente por solicitação de privacidade dos proprietários.</p>
+                </div>
+                <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20as%20op%C3%A7%C3%B5es%20de%20im%C3%B3veis%20off-market%20e%20exclusivos." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp-large">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.625.846 5.059 2.284 7.033l-1.496 5.467 5.601-1.469c1.908 1.213 4.168 1.969 6.611 1.969 6.627 0 12-5.373 12-12s-5.373-12-12-12z"/>
+                    </svg>
+                    Consultar Catálogo Privado no WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <span class="logo-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                    </span>
+                    <div class="logo-text">
+                        <span class="logo-brand">LUMINA</span>
+                        <span class="logo-sub">PRIME IMÓVEIS</span>
+                    </div>
+                </a>
+                <p>Especialistas no mercado imobiliário premium em São Paulo. Vendas, locações e assessoria imobiliária completa. CRECI 45.892-J.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#imoveis">Catálogo de Imóveis</a></li>
+                    <li><a href="#diferenciais">Nossos Diferenciais</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Tipos de Imóveis</h4>
+                <ul>
+                    <li><a href="#imoveis" data-quick-type="Apartamento">Apartamentos de Alto Padrão</a></li>
+                    <li><a href="#imoveis" data-quick-type="Casa">Mansões em Condomínio</a></li>
+                    <li><a href="#imoveis" data-quick-type="Cobertura">Coberturas Penthouse</a></li>
+                    <li><a href="#imoveis" data-quick-type="Studio">Studios Executivos</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Atendimento</h4>
+                <p>Av. Brigadeiro Faria Lima, 3477 - 14º Andar - Itaim Bibi, São Paulo - SP</p>
+                <p>Plantão de Atendimento: Segunda a Domingo, 08h às 21h</p>
+                <p class="footer-phone">WhatsApp: (11) 99999-9999</p>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Lumina Prime Imóveis. Todos os direitos reservados. CRECI 45.892-J.</p>
+        </div>
+    </footer>
+
+    <!-- Property Details Modal -->
+    <div class="modal-backdrop" id="propertyModal" aria-hidden="true">
+        <div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <button class="modal-close" id="modalCloseBtn" aria-label="Fechar detalhes">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+
+            <div class="modal-body">
+                <!-- Left Column: Image Gallery -->
+                <div class="modal-gallery">
+                    <div class="main-image-wrapper">
+                        <span class="modal-badge" id="modalBadge">Venda</span>
+                        <span class="modal-code" id="modalCode">REF: LP-101</span>
+                        <img src="" alt="Foto do Imóvel" id="modalMainImage" class="modal-main-img">
+                        <button class="gallery-nav prev" id="galleryPrev" aria-label="Foto anterior">‹</button>
+                        <button class="gallery-nav next" id="galleryNext" aria-label="Próxima foto">›</button>
+                    </div>
+                    <div class="thumbnails-row" id="modalThumbnails">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Right Column: Property Details & WhatsApp CTA -->
+                <div class="modal-info">
+                    <div class="modal-header-info">
+                        <span class="modal-type-tag" id="modalType">Apartamento</span>
+                        <h2 class="modal-title" id="modalTitle">Título do Imóvel</h2>
+                        <p class="modal-location" id="modalLocation">
+                            <!-- Populated dynamically -->
+                        </p>
+                    </div>
+
+                    <div class="modal-price-box">
+                        <div class="price-main">
+                            <span class="price-label">Valor do Imóvel</span>
+                            <strong class="price-value" id="modalPrice">R$ 0</strong>
+                        </div>
+                        <div class="price-extras">
+                            <div class="extra-item">
+                                <span>Condomínio</span>
+                                <strong id="modalCondo">R$ 0</strong>
+                            </div>
+                            <div class="extra-item">
+                                <span>IPTU (mensal)</span>
+                                <strong id="modalIptu">R$ 0</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Specs Grid -->
+                    <div class="modal-specs-grid">
+                        <div class="spec-box">
+                            <span class="spec-num" id="modalArea">0 m²</span>
+                            <span class="spec-name">Área Útil</span>
+                        </div>
+                        <div class="spec-box">
+                            <span class="spec-num" id="modalBedrooms">0</span>
+                            <span class="spec-name">Quartos</span>
+                        </div>
+                        <div class="spec-box">
+                            <span class="spec-num" id="modalSuites">0</span>
+                            <span class="spec-name">Suítes</span>
+                        </div>
+                        <div class="spec-box">
+                            <span class="spec-num" id="modalBathrooms">0</span>
+                            <span class="spec-name">Banheiros</span>
+                        </div>
+                        <div class="spec-box">
+                            <span class="spec-num" id="modalParking">0</span>
+                            <span class="spec-name">Vagas</span>
+                        </div>
+                    </div>
+
+                    <!-- Detailed Extra Specs (Ano, Sol, Garagem, Status) -->
+                    <div class="modal-section extra-specs-section">
+                        <h3>Ficha Técnica & Edificação</h3>
+                        <div class="extra-specs-container" id="modalExtraSpecs">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="modal-section">
+                        <h3>Memorial Descritivo do Imóvel</h3>
+                        <p id="modalDescription" class="modal-description-text"></p>
+                    </div>
+
+                    <!-- Amenities -->
+                    <div class="modal-section">
+                        <h3>Diferenciais e Infraestrutura do Condomínio</h3>
+                        <ul class="amenities-list" id="modalAmenities">
+                            <!-- Populated dynamically -->
+                        </ul>
+                    </div>
+
+                    <!-- Nearby Landmarks -->
+                    <div class="modal-section">
+                        <h3>Localização e Arredores</h3>
+                        <ul class="amenities-list nearby-list" id="modalNearby">
+                            <!-- Populated dynamically -->
+                        </ul>
+                    </div>
+
+                    <!-- Custom WhatsApp Action Box -->
+                    <div class="modal-cta-box">
+                        <div class="agent-preview">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=120&q=80" alt="Corretor Especialista">
+                            <div>
+                                <strong>Lucas Mendonça | CRECI 189.442</strong>
+                                <span>Consultor Sênior Lumina • Ativo no WhatsApp</span>
+                            </div>
+                        </div>
+
+                        <div class="custom-msg-field">
+                            <label for="customWhatsappMsg">Mensagem automática com os dados do anúncio (você pode editar):</label>
+                            <textarea id="customWhatsappMsg" rows="2"></textarea>
+                        </div>
+
+                        <div class="modal-cta-buttons">
+                            <a href="#" id="modalWhatsappBtn" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp-modal">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.625.846 5.059 2.284 7.033l-1.496 5.467 5.601-1.469c1.908 1.213 4.168 1.969 6.611 1.969 6.627 0 12-5.373 12-12s-5.373-12-12-12z"/>
+                                </svg>
+                                <span>Agendar Visita • Falar no WhatsApp</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Vi%20os%20an%C3%BAncios%20da%20Lumina%20Prime%20e%20gostaria%20de%20atendimento%20especializado." target="_blank" rel="noopener noreferrer" class="floating-whatsapp" aria-label="Contato via WhatsApp">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.625.846 5.059 2.284 7.033l-1.496 5.467 5.601-1.469c1.908 1.213 4.168 1.969 6.611 1.969 6.627 0 12-5.373 12-12s-5.373-12-12-12z"/>
+        </svg>
+        <span class="floating-tooltip">Falar com Corretor</span>
+    </a>
+
+    <script src="app.js"></script>
+</body>
+</html>
